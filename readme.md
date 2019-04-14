@@ -11,7 +11,7 @@ Order of following steps is important: (You should have latest version of compos
    
    "UPDATE `rd_db`.`oauth_clients` SET `secret`='H1CZv1kMT147X8IPtXnArBdfgfbCovFwNzvQcmu1' WHERE  `id`=2;"
    
-7. Open shadabtest/frontend in cmd and run "ng serve" then open localhost/4200 in browser
+7. Open shadabtest/frontend in cmd and run "ng serve" then open localhost:4200 in browser
    
 
 # B. Login Credentials (1 Admin and 2 Scientists)
