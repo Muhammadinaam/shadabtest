@@ -11,7 +11,18 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  currentUser;
+
+  constructor(private http: HttpClient, private router: Router) { 
+
+    let currentUserString = localStorage.getItem("currentUser");
+
+    if(currentUserString != null || currentUserString != '')
+    {
+      this.currentUser = JSON.parse(currentUserString);
+    }
+
+  }
   
   login(userID: string, password: string): any {
 
@@ -35,11 +46,18 @@ export class AuthService {
 
     localStorage.setItem('id_token', authResult.access_token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-  }          
+
+    
+  }     
+  
+  getCurrentUser(){
+    return this.http.get(BaseEndPointService.getBaseEndPoint() + '/api/user')
+  }
 
   logout() {
       localStorage.removeItem("id_token");
       localStorage.removeItem("expires_at");
+      localStorage.removeItem("currentUser");
       this.redirectToLogin();
   }
 

@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@agm/core": "^1.0.0-beta.5",
-    "@angular/animations": "^7.2.11",
+    "@angular/animations": "^7.2.13",
     "@angular/cdk": "^7.3.6",
     "@angular/common": "^7.2.11",
     "@angular/compiler": "^7.2.11",
@@ -58,6 +58,7 @@
     "ionicons": "2.0.1",
     "moment": "^2.22.0",
     "nebular-icons": "1.1.0",
+    "ng-pick-datetime": "^7.0.0",
     "normalize.css": "6.0.0",
     "pace-js": "1.0.2",
     "roboto-fontface": "0.8.0",

@@ -33,7 +33,16 @@ export class LoginComponent implements OnInit {
         {
           if(data.access_token != null)
           {
-            this.router.navigate(['']);
+            this.authService.getCurrentUser()
+              .subscribe(user => {
+                this.authService.currentUser = user;
+                localStorage.setItem("currentUser", JSON.stringify( user ) );
+                this.router.navigate(['']);
+              },
+              () => {
+                this.error = 'Error occurred, please try again';
+              });
+
           }
         },
         error => 

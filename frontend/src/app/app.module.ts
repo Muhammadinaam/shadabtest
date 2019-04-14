@@ -16,6 +16,8 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.service';
 
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,6 +29,9 @@ import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.ser
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
   ],
   bootstrap: [AppComponent],
   providers: [

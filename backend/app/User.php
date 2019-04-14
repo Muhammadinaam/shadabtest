@@ -15,6 +15,14 @@ class User extends Authenticatable
         return $this->where('userid', $username)->first();
     }
 
+    public function AbortIfNotAdmin()
+    {
+        if($this->role != 'Admin')
+        {
+            abort(403, 'You are not allowed to perform this operation');
+        }
+    }
+
     /**
      * The attributes that are mass assignable.
      *

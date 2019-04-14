@@ -1,0 +1,45 @@
+<div class="row">
+  <nb-card class="col-md-12">
+    <nb-card-header>
+      Time Log
+    </nb-card-header>
+    
+    <nb-card-body>
+      <form #dataForm="ngForm" (ngSubmit)="onSubmit()">
+          <!-- <pre> {{ data | json}}</pre> -->
+
+        <div class="form-group">
+          <label for="project">Ongoing Project:</label>
+          <select class="form-control" id="project" 
+            name="project" [(ngModel)]="data.project" #project="ngModel" required>
+            
+            <option *ngFor="let project of ongoingProjects" [value]="project['id']">{{project['title']}}</option>
+
+          </select>
+          <validation [field]="project" fieldName="Ongoing Project"></validation>
+        </div>
+
+        <div class="form-group">
+          <label for="datetime_range">Start and End Date/Time:</label>
+          <input class="form-control" id="datetime_range" 
+          name="datetime_range" [(ngModel)]="data.datetime_range" #datetime_range="ngModel" required 
+          selectMode="range" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" autocomplete="off">
+          <owl-date-time #dt1></owl-date-time>
+          <validation [field]="datetime_range" fieldName="Start and End Date/Time"></validation>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" class="form-control" id="description" 
+            name="description" [(ngModel)]="data.description" #description="ngModel" >
+          <validation [field]="description" fieldName="Description"></validation>
+        </div>
+
+        
+
+        <hr>
+        <button type="submit" class="btn btn-sm btn-primary float-right" [disabled]="dataForm.invalid || submitting">Submit</button>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,40 @@
+<div class="row">
+  <nb-card class="col-md-12">
+    <nb-card-header>
+      Project
+    </nb-card-header>
+    
+    <nb-card-body>
+      <form #dataForm="ngForm" (ngSubmit)="onSubmit()">
+          <!-- <pre> {{ data | json}}</pre> -->
+
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" 
+            name="title" [(ngModel)]="data.title" #title="ngModel" required >
+          <validation [field]="title" fieldName="Title"></validation>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" class="form-control" id="description" 
+            name="description" [(ngModel)]="data.description" #description="ngModel" >
+          <validation [field]="description" fieldName="Description"></validation>
+        </div>
+
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select class="form-control" id="status" 
+            name="status" [(ngModel)]="data.status" #status="ngModel" required>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Complete">Complete</option>
+          </select>
+          <validation [field]="status" fieldName="Status"></validation>
+        </div>
+
+        <hr>
+        <button type="submit" class="btn btn-sm btn-primary float-right" [disabled]="dataForm.invalid || submitting">Submit</button>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>
