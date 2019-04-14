@@ -1,4 +1,4 @@
-A. How to Setup this Project:
+# A. How to Setup this Project:
 
 Order of following steps is important: (You should have latest version of composer for setting up Laravel project)
 
